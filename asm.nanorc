@@ -2,19 +2,25 @@
 ##
 syntax "ASM" "\.(S|s|asm)$"
 magic "assembler source"
-comment "//"
+comment "// "
 
-color red "\<[A-Z_]{2,}\>"
-color brightgreen "\.(data|subsection|text)"
-color green "\.(align|file|globl|global|hidden|section|size|type|weak)"
-color brightyellow "\.(ascii|asciz|byte|double|float|hword|int|long|short|single|struct|word)"
-icolor brightred "^[[:space:]]*[.0-9A-Z_]*:"
-color brightcyan "^[[:space:]]*#[[:space:]]*(define|undef|include|ifn?def|endif|elif|else|if|warning|error)"
+color brightmagenta "\<[A-Z_]{2,}\>"
+color brightblack   "\<[0-9]+\>"
+color brightgreen   "\.(data|subsection|text)"
+color green         "\.(align|file|globl|global|hidden|section|size|type|weak)"
+color brightyellow  "\.(ascii|asciz|byte|double|float|hword|int|long|short|single|struct|word)"
+icolor brightred    "^[[:space:]]*[.0-9A-Z_]*:"
+color brightcyan    "^[[:space:]]*#[[:space:]]*(define|undef|include|ifn?def|endif|elif|else|if|warning|error)"
+icolor brightred    "(jo|jno|js|jns|je|jz|jne|jnz|jb|jnae|jc|jnb|jae|jnc|jbe|jna|ja|jnbe|jl|jnge|jge|jnl|jle|jng|jg|jnle|jp|jpe|jnp|jpo|jcxz|jecxz|jmp)[[:space:]]+[.0-9A-Z_]+"
+icolor cyan         "\<(jo|jno|js|jns|je|jz|jne|jnz|jb|jnae|jc|jnb|jae|jnc|jbe|jna|ja|jnbe|jl|jnge|jge|jnl|jle|jng|jg|jnle|jp|jpe|jnp|jpo|jcxz|jecxz|jmp|xor|cmp|ret|mov|setne|movzx|neg|sete|lea)\>"
+icolor brightblue   "\<(rax|eax|ax|al|rbx|ebx|bx|bl|rcx|ecx|cx|cl|rdx|edx|dx|dl|rsi|esi|si|sil|rdi|edi|di|dil|rbp|ebp|bp|bpl|rsp|esp|sp|spl|r8|r8d|r8w|r8b|r9|r9d|r9w|r9b|r10|r10d|r10w|r10b|r11|r11d|r11w|r11b|r12|r12d|r12w|r12b|r13|r13d|r13w|r13b|r14|r14d|r14w|r14b|r15|r15d|r15w|r15b)\>"
+
 ## Highlight strings (note: VERY resource intensive)
-color brightyellow "<[^= 	]*>" ""(\\.|[^"])*""
-color brightyellow start=""(\\.|[^"])*\\[[:space:]]*$" end="^(\\.|[^"])*""
+icolor yellow start="\"" end="[^\\](\\\\)*\""
+
 ## Highlight comments
 color brightblue "^\s*//.*"
 color brightblue start="/\*" end="\*/"
+
 ## Highlight trailing whitespace
 color ,green "[[:space:]]+$"
