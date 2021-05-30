@@ -11,7 +11,7 @@ bind ^w replace main
 bind ^/ comment main
 
 unbind ^o main
-# huiiuh
+
 set codebounds
 set clipboard
 set regexendbol
