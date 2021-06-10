@@ -14,6 +14,9 @@ unbind ^o main
 
 set codebounds
 set clipboard
+set smartcomment
+set advancingcomment
+set alignedcomment
 set regexendbol
 
 set tabsize 4

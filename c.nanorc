@@ -5,7 +5,7 @@ comment "// "
 
 icolor mint "\<[0-9]+[A-Z_0-9]*\>"
 
-icolor brightyellow "([[:alpha:]_][[:alnum:]_]*::)+[[:alpha:]_][[:alnum:]_]*"
+icolor ~184 "([[:alpha:]_][[:alnum:]_]*)?(::[[:alpha:]_][[:alnum:]_]*)+"
 color brightblue "\<([A-Z][A-Za-z0-9]*_?)+[0-9]*\>"
 color brightred "\<[A-Z_][0-9A-Z_]+\>"
 color green "\<(float|double|bool|char|wchar_t|int|short|long|sizeof|enum|void|static|const|struct|union|typedef|extern|(un)?signed|inline)\>"
@@ -17,12 +17,12 @@ color green "\<((const|dynamic|reinterpret|static)_cast)\>"
 color green "\<(alignas|alignof|asm|auto|compl|concept|constinit|consteval|constexpr|decltype|export|noexcept|nullptr|requires|static_assert|thread_local|typeid|override|final)\>"
 
 # My keywords
-color lime "\<(u?int(16|32)?)\>"
+color lime "\<u?int(8|16|32|64)?(_t)?\>" "\<(u|i)(8|16|32|64)\>" "\<f(32|64|80)\>"
 color green "\<(require)\>"
 color orange "\<(true|false)\>"
-icolor brightyellow "\<(assert|print|info|warning|error)f?\>"
+icolor brightyellow "\<(assert|print|debug|info|warning|error)f?\>"
 
-icolor peach "([.]|->)[[:space:]]*\<[A-Z0-9_]+\>"
+icolor peach "([.]|->)[[:space:]]*\<[[:alpha:]_][[:alnum:]_]+\>"
 # color green "\<(and|and_eq|bitand|bitor|not|not_eq|or|or_eq|xor|xor_eq)\>"
 
 color bold,lightmagenta "\<(goto|continue|break|return)\>"
@@ -46,7 +46,7 @@ color magenta "[(){}]" "\[" "\]"
 ## strings to come last, because syntax highlighting rules will be
 ## applied in the order they are read in.
 # icolor yellow start="\"" end="([^\\](\\\\)*|^)\""
-icolor yellow "\".*[^\\]?(\\\\)*\""
+icolor yellow "\"([^"]|\\(\\\\)*\")*[^\\]?(\\\\)*\""
 
 ## Comment highlighting
 color lightblack "//.*"
