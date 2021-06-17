@@ -58,14 +58,18 @@ icolor yellow "^[[:space:]]*(set|unset)[[:space:]]+(errorcolor|functioncolor|key
 icolor brightgreen "^[[:space:]]*(set|unset)[[:space:]]+(codebounds|clipboard|afterends|allow_insecure_backup|atblanks|autoindent|backup|backupdir|boldtext|brackets|breaklonglines|casesensitive|constantshow|cutfromcursor|emptyline|errorcolor|fill|functioncolor|guidestripe|historylog|jumpyscrolling|keycolor|linenumbers|locking|matchbrackets|morespace|mouse|multibuffer|noconvert|nohelp|nonewlines|nopauses|nowrap|numbercolor|operatingdir|positionlog|preserve|punct|quickblank|quotestr|rawsequences|rebinddelete|regexp|selectedcolor|showcursor|smarthome|smooth|softwrap|speller|statuscolor|stripecolor|suspend|tabsize|tabstospaces|tempfile|titlecolor|trimblanks|unix|view|whitespace|wordbounds|wordchars|zap|regexendbol)\>"
 icolor green "^[[:space:]]*((un)?bind|set|unset|syntax|header|include|magic|comment)\>"
 
-## Strings (requires regexendbol)
-icolor yellow start="\"" end="([^\\](\\\\)*|^)\""
+## Strings
+icolor yellow "\"\"" "\"([^"]|\\(\\\\)*\")*[^\\]?(\\\\)*\""
+
 icolor lime "\[:[A-Z0-9_]+:\]" "\\[<>]"
 icolor peach "[|?]"
 
 ## Comments
 icolor brightblue "^[[:space:]]*#.*$"
 icolor cyan "^[[:space:]]*##.*$"
+
+icolor lime "TODO@[a-z0-9_]+:"
+icolor cyan "NOTE@[a-z0-9_]+:"
 
 ## Trailing whitespace
 icolor ,green "[[:space:]]+$"

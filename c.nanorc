@@ -45,8 +45,7 @@ color magenta "[(){}]" "\[" "\]"
 ## String highlighting.  You will in general want your comments and
 ## strings to come last, because syntax highlighting rules will be
 ## applied in the order they are read in.
-# icolor yellow start="\"" end="([^\\](\\\\)*|^)\""
-icolor yellow "\"([^"]|\\(\\\\)*\")*[^\\]?(\\\\)*\""
+icolor yellow "\"\"" "\"([^"]|\\(\\\\)*\")*[^\\]?(\\\\)*\""
 
 ## Comment highlighting
 color lightblack "//.*"
@@ -56,6 +55,7 @@ color lightblack start="/\*" end="\*/"
 color lightblue "@param [a-zA-Z_][a-z0-9A-Z_]+"
 color lightblue "@return"
 color lightblue "@author.*"
+
 icolor lime "TODO@[a-z0-9_]+:"
 icolor cyan "NOTE@[a-z0-9_]+:"
 

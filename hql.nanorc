@@ -1,0 +1,52 @@
+syntax "HQL" "\.hql$"
+comment "-- "
+
+# icolor cyan "\<(ALL|ASC|AS|ALTER|AND|ADD|AUTO_INCREMENT)\>"
+# icolor cyan "\<(BETWEEN|BINARY|BOTH|BY|BOOLEAN)\>"
+# icolor cyan "\<(CHANGE|CHECK|COLUMNS|COLUMN|CROSS|CREATE)\>"
+# icolor cyan "\<(DATABASES|DATABASE|DATA|DELAYED|DESCRIBE|DESC|DISTINCT|DELETE|DROP|DEFAULT)\>"
+# icolor cyan "\<(ENCLOSED|ESCAPED|EXISTS|EXPLAIN)\>"
+# icolor cyan "\<(FIELDS|FIELD|FLUSH|FOR|FOREIGN|FUNCTION|FROM)\>"
+# icolor cyan "\<(GROUP|GRANT|HAVING)\>"
+# icolor cyan "\<(IGNORE|INDEX|INFILE|INSERT|INNER|INTO|IDENTIFIED|IN|IS|IF)\>"
+# icolor cyan "\<(JOIN|KEYS|KILL|KEY)\>"
+# icolor cyan "\<(LEADING|LIKE|LIMIT|LINES|LOAD|LOCAL|LOCK|LOW_PRIORITY|LEFT|LANGUAGE)\>"
+# icolor cyan "\<(MODIFY|NATURAL|NOT|NULL|NEXTVAL)\>"
+# icolor cyan "\<(OPTIMIZE|OPTION|OPTIONALLY|ORDER|OUTFILE|OR|OUTER|ON)\>"
+# icolor cyan "\<(PROCEDURE|PROCEDURAL|PRIMARY)\>"
+# icolor cyan "\<(READ|REFERENCES|REGEXP|RENAME|REPLACE|RETURN|REVOKE|RLIKE|RIGHT)\>"
+# icolor cyan "\<(SHOW|SONAME|STATUS|STRAIGHT_JOIN|SELECT|SETVAL|SET)\>"
+# icolor cyan "\<(TABLES|TERMINATED|TO|TRAILING|TRUNCATE|TABLE|TEMPORARY|TRIGGER|TRUSTED)\>"
+# icolor cyan "\<(UNIQUE|UNLOCK|USE|USING|UPDATE|VALUES|VARIABLES|VIEW)\>"
+# icolor cyan "\<(WITH|WRITE|WHERE|ZEROFILL|TYPE|XOR)\>"
+color green "\<(VARCHAR|TINYINT|TEXT|DATE|SMALLINT|MEDIUMINT|INT|INTEGER|BIGINT|FLOAT|DOUBLE|DECIMAL|DATETIME|TIMESTAMP|TIME|YEAR|UNSIGNED|CHAR|TINYBLOB|TINYTEXT|BLOB|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|ENUM|BOOL|BINARY|VARBINARY)\>"
+
+# SQLite meta commands
+# icolor cyan "\.\<(databases|dump|echo|exit|explain|header(s)?|help)\>"
+# icolor cyan "\.\<(import|indices|mode|nullvalue|output|prompt|quit|read)\>"
+# icolor cyan "\.\<(schema|separator|show|tables|timeout|width)\>"
+# color brightcyan  "\<(ON|OFF)\>"
+
+## Actual HQL keywords
+icolor cyan "\<(all|alter|and|array|as|authorization|between|bigint|binary|boolean|both|by|case|cast|char|column|conf|create|cross|cube|current|current_date|current_timestamp|cursor|database|date|decimal|delete|describe|distinct|double|drop|else|end|exchange|exists|extended|external|false|fetch|float|following|for|from|full|function|grant|group|grouping|having|if|import|in|inner|insert|int|intersect|interval|into|is|join|lateral|left|less|like|local|macro|map|more|none|not|null|of|on|or|order|out|outer|over|partialscan|partition|percent|preceding|preserve|procedure|range|reads|reduce|revoke|right|rollup|row|rows|select|set|smallint|table|tablesample|then|timestamp|to|transform|trigger|true|truncate|unbounded|union|uniquejoin|update|user|using|utc_tmestamp|values|varchar|when|where|window|with|commit|only|regexp|rlike|rollback|start|cache|constraint|foreign|primary|references|dayofweek|extract|floor|integer|precision|views|time|numeric|sync)\>"
+icolor lime "\<(add|admin|after|analyze|archive|asc|before|bucket|buckets|cascade|change|cluster|clustered|clusterstatus|collection|columns|comment|compact|compactions|compute|concatenate|continue|data|databases|datetime|day|dbproperties|deferred|defined|delimited|dependency|desc|directories|directory|disable|distribute|elem_type|enable|escaped|exclusive|explain|export|fields|file|fileformat|first|format|formatted|functions|hold_ddltime|hour|idxproperties|ignore|index|indexes|inpath|inputdriver|inputformat|items|jar|keys|key_type|limit|lines|load|location|lock|locks|logical|long|mapjoin|materialized|metadata|minus|minute|month|msck|noscan|no_drop|offline|option|outputdriver|outputformat|overwrite|owner|partitioned|partitions|plus|pretty|principals|protection|purge|read|readonly|rebuild|recordreader|recordwriter|reload|rename|repair|replace|replication|restrict|rewrite|role|roles|schema|schemas|second|semi|serde|serdeproperties|server|sets|shared|show|show_database|skewed|sort|sorted|ssl|statistics|stored|streamtable|string|struct|tables|tblproperties|temporary|terminated|tinyint|touch|transactions|unarchive|undo|uniontype|unlock|unset|unsigned|uri|use|utc|utctimestamp|value_type|view|while|year|autocommit|isolation|level|offset|snapshot|transaction|work|write|abort|key|last|norely|novalidate|nulls|rely|validate|detail|dow|expression|operator|quarter|summary|vectorization|week|years|months|weeks|days|hours|minutes|seconds|timestamptz|zone)\>"
+
+color blue   "\<([0-9]+)\>"
+
+## Strings
+icolor yellow "\"\"" "\"([^"]|\\(\\\\)*\")*[^\\]?(\\\\)*\""
+icolor yellow "``" "`([^`]|\\(\\\\)*`)*[^\\]?(\\\\)*`"
+icolor yellow "''" "'([^']|\\(\\\\)*')*[^\\]?(\\\\)*'"
+
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+
+## Comment highlighting
+color lightblack "\-\-.*"
+color lightblack start="/\*" end="\*/"
+
+icolor lime "TODO@[a-z0-9_]+:"
+icolor cyan "NOTE@[a-z0-9_]+:"
+
+## Trailing whitespace
+color ,green "[[:space:]]+$"
