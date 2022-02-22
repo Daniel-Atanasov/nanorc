@@ -54,10 +54,10 @@ color lightblack start="/\*" end="\*/"
 # Highlighting for documentation comments
 color lightblue "@param [a-zA-Z_][a-z0-9A-Z_]+"
 color lightblue "@return"
-color lightblue "@author.*"
+color lightblue "@author"
 
-icolor lime "TODO@[a-z0-9_]+:"
-icolor cyan "NOTE@[a-z0-9_]+:"
+icolor lime "TODO(@[a-z0-9_]+)?:"
+icolor cyan "NOTE(@[a-z0-9_]+)?:"
 
 ## Trailing whitespace
 color ,green "[[:space:]]+$"
